@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './message-input-container.styles.scss';
 import SendIcon from '@mui/icons-material/Send';
 
-import io from 'socket.io-client';
+import { AppContext } from '../../context/appContext';
 
 function MessageInputContainer() {
-    const socket = io.connect('http://localhost:5000/');
+    const { socket } = useContext(AppContext);
 
     const [inputValue, setInput] = useState('');
 
@@ -13,34 +13,26 @@ function MessageInputContainer() {
         setInput(e.target.value);
     }
 
-    useEffect(() => {
-        // try {
-            socket.on('receive_message', (response) => {
-                console.log(response.message);
-            });
-        // }
-        // catch(err) {
-        //     socket.emit('error_receiving_message', {
-        //         message: err,
-        //         status: 400
-        //     });
-        // }
-    }, [socket]);
-
     const handleSendMessage = () => {
         if(inputValue.length) {
-            // try {
+            socket.emit('send_message', {
+                message: inputValue,
+                timestamp: Date.now(),
+                // senderID: socket.id
+            });
+            setInput('');
+        }
+    }
+
+    const handleKeyDown = (e) => {
+        if(inputValue.length) {
+            if(e.key === 'Enter') {
                 socket.emit('send_message', {
                     message: inputValue,
-                    status: 200
+                    timestamp: Date.now()
                 });
-            // }
-            // catch(err) {
-            //     socket.emit('error_sending_message', {
-            //         message: err,
-            //         status: 400
-            //     });
-            // }
+                setInput('');
+            }
         }
     }
 
@@ -50,7 +42,8 @@ function MessageInputContainer() {
                 type="text" 
                 placeholder='Enter message' 
                 onChange={handleChange} 
-                value={inputValue}
+                value={inputValue} 
+                onKeyDown={handleKeyDown}
             />
 
             <button className='send-button' onClick={handleSendMessage}>

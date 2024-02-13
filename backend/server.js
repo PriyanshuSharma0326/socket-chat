@@ -21,19 +21,9 @@ const io = new Server(server, {
 });
 
 io.on('connection', (socket) => {
-    console.log(`User connected. ID: ${socket.id}`);
-
     socket.on('send_message', (response) => {
-        socket.broadcast.emit('receive_message', response);
+        io.emit('receive_message', response);
     });
-
-    // socket.on('error_sending_message', (response) => {
-    //     console.log(response.message);
-    // });
-
-    // socket.on('error_receiving_message', (response) => {
-    //     console.log(response.message);
-    // });
 });
 
 server.listen(PORT, () => {
