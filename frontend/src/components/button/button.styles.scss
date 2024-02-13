@@ -1,0 +1,18 @@
+.button-container {
+    padding: 0.75rem 1rem;
+    background-color: var(--black);
+    color: var(--white);
+    border: 1px solid var(--black);
+    border-radius: 0.25rem;
+    font-size: 1.25rem;
+    font-family: var(---roboto-sans);
+
+    position: absolute;
+    bottom: 10%;
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--white);
+        color: var(--black);
+    }
+}

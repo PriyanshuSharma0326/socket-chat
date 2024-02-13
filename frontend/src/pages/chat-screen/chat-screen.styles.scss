@@ -1,1 +1,16 @@
-.chat-screen-container {}
+.chat-screen-container {
+    width: 70vw;
+    height: 65vh;
+
+    padding: 2rem;
+    border: 2px solid var(--black);
+    border-radius: 1.5rem;
+
+    position: absolute;
+    top: 10%;
+    left: unset;
+
+    &.active {
+        left: calc(-70vw - 2px);
+    }
+}
