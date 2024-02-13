@@ -1,0 +1,11 @@
+.chat-screen-container {
+    transition: all 0.8s ease-in;
+}
+
+.chat-screen-container.active {
+    top: 8%;
+}
+
+.message-list::-webkit-scrollbar {
+    display: none;
+}

@@ -22,7 +22,11 @@ const io = new Server(server, {
 
 io.on('connection', (socket) => {
     socket.on('send_message', (response) => {
-        io.emit('receive_message', response);
+        io.to(response.room).emit('receive_message', response);
+    });
+
+    socket.on('join_room', (response) => {
+        socket.join(response);
     });
 });
 

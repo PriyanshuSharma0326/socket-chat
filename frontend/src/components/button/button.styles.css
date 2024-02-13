@@ -1,0 +1,7 @@
+button {
+    transition: bottom 0.8s ease-in;
+}
+
+button.active {
+    bottom: -8%;
+}

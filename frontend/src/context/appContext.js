@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 import { io } from 'socket.io-client';
 
@@ -8,11 +8,20 @@ export const AppContextProvider = ({ children }) => {
     const socket = io.connect('http://localhost:5000/');
 
     const [messages, setMessages] = useState([]);
+    const [inRoom, setInRoom] = useState(false);
+
+    useEffect(() => {
+        socket.on('receive_message', (response) => {
+            setMessages([...messages, response]);
+        });
+    }, [socket, messages]);
 
     const contextValue = {
         messages,
         setMessages,
-        socket
+        socket,
+        inRoom,
+        setInRoom,
     };
 
     return (
