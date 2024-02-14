@@ -44,7 +44,7 @@ A simple and socket.io based chat room application built React and Nodejs.
 ```bash
   npm i
   npm i -D sass tailwindcss
-  npm i socket.io-slient
+  npm i socket.io-client
 ```
 
 ### Start the backend server
