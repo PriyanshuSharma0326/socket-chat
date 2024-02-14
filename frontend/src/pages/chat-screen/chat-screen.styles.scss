@@ -8,18 +8,16 @@
             top: 0;
         }
     }
-}
 
-.chat-screen-container {
-    &.active {
-        @media screen and (max-width: 426px) {
+    .message-list {
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 426px) {
+        &.active {
             top: 0;
         }
     }
-}
-
-.chat-screen-container
-
-.message-list::-webkit-scrollbar {
-    display: none;
 }
