@@ -4,7 +4,7 @@ import ChatScreen from '../chat-screen/chat-screen';
 
 function HomePage() {
     return (
-        <div className='w-screen h-screen absolute flex flex-col items-center justify-center gap-12'>
+        <div className='w-screen h-screen overflow-hidden absolute flex flex-col items-center justify-center gap-12'>
             <ChatScreen />
 
             <Button 

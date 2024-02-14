@@ -37,7 +37,7 @@ function MessageInputContainer() {
     }
 
     return (
-        <div className='w-[calc(100%-4rem)] absolute bottom-3 left-1/2 translate-x-[-50%] translate-y-[-50%] flex items-center gap-4'>
+        <div className='w-[calc(100%-4rem)] max-[426px]:w-[calc(100%-2rem)] absolute bottom-3 max-[426px]:bottom-0 left-1/2 translate-x-[-50%] translate-y-[-50%] flex items-center gap-4'>
             <input 
                 type="text" 
                 className='w-full rounded-[2rem] bg-[var(--grey-7)] text-[1.05rem] border-2 border-solid border-black p-[0.9rem_1rem_0.9rem_1.25rem]'

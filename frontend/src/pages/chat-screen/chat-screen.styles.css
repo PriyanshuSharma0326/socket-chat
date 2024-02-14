@@ -4,6 +4,10 @@
 
 .chat-screen-container.active {
     top: 8%;
+
+    @media screen and (max-width: 426px) {
+        top: 0;
+    }
 }
 
 .message-list::-webkit-scrollbar {
