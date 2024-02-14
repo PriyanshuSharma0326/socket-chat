@@ -5,7 +5,7 @@ import { io } from 'socket.io-client';
 export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
-    const socket = io.connect('https://socket-chat-server-slbm.onrender.com/');
+    const socket = io.connect('http://localhost:5000/');
 
     const [messages, setMessages] = useState([]);
     const [inRoom, setInRoom] = useState(false);
