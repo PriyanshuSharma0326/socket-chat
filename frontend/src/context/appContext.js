@@ -12,9 +12,9 @@ export const AppContextProvider = ({ children }) => {
 
     useEffect(() => {
         socket.on('receive_message', (response) => {
-            setMessages([...messages, response]);
+            setMessages(prevMessages => [...prevMessages, response]);
         });
-    }, [socket, messages]);
+    }, [socket]);
 
     const contextValue = {
         messages,
