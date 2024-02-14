@@ -1,0 +1,25 @@
+.chat-screen-container {
+    transition: all 0.8s ease-in;
+
+    &.active {
+        top: 8%;
+    
+        @media screen and (max-width: 426px) {
+            top: 0;
+        }
+    }
+}
+
+.chat-screen-container {
+    &.active {
+        @media screen and (max-width: 426px) {
+            top: 0;
+        }
+    }
+}
+
+.chat-screen-container
+
+.message-list::-webkit-scrollbar {
+    display: none;
+}

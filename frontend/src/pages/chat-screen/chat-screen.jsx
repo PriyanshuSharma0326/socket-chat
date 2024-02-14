@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import './chat-screen.styles.css';
+import './chat-screen.styles.scss';
 import MessageInputContainer from '../../components/message-input-container/message-input-container';
 
 import Message from '../../components/message/message';
