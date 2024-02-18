@@ -8,6 +8,10 @@ const PORT = 5000;
 
 app.use(cors());
 
+app.get('/', (req, res) => {
+    res.send('Hello')
+})
+
 const server = http.createServer(app);
 
 const io = new Server(server, {
