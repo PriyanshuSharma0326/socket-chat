@@ -2,21 +2,19 @@ import express from 'express';
 import cors from 'cors';
 import http from 'http';
 import { Server } from 'socket.io';
+import helmet from 'helmet';
 
 const app = express();
 const PORT = 5000;
 
 app.use(cors());
-
-app.get('/', (req, res) => {
-    res.send('Hello')
-})
+app.use(helmet());
 
 const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: 'https://socket-chat-frontend-blue.vercel.app/',
+        origin: 'http://localhost:3000',
         methods: [
             'GET',
             'POST'
